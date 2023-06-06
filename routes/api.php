@@ -10,6 +10,13 @@ use App\Http\Controllers\PaymentCallbackController; // => letakkan dibagian atas
 use App\Http\Controllers\OrderController; // => letakkan dibagian atas
 use App\Http\Controllers\ProductController; // => letakkan dibagian atas
 use App\Http\Controllers\KeranjangController; // => letakkan dibagian atas
+use App\Http\Controllers\ProvController; // => letakkan dibagian atas
+use App\Http\Controllers\KabController; // => letakkan dibagian atas
+use App\Http\Controllers\KecController; // => letakkan dibagian atas
+use App\Http\Controllers\DesaController; // => letakkan dibagian atas
+use App\Http\Controllers\KodePosController; // => letakkan dibagian atas
+use App\Http\Controllers\UserLogController; // => letakkan dibagian atas
+use App\Http\Controllers\PengirimanController; // => letakkan dibagian atas
 
 /*
 |--------------------------------------------------------------------------
@@ -91,5 +98,71 @@ Route::resource('keranjang', KeranjangController::class);
 // Route::resource('orders', OrderController::class)->only(['index', 'show']);
  
 Route::post('payments/midtrans-notification', [PaymentCallbackController::class, 'receive']);
+
+// provinsi
+Route::controller(ProvController::class)->group(function () {
+
+    Route::get('/provinsi', 'index');
+    Route::post('/provinsi', 'store');
+    Route::get('/provinsi/{id}', 'show');
+    Route::put('/provinsi/{id}', 'update');
+    Route::delete('/provinsi/{id}', 'destroy');
+
+});
+
+// kabupaten
+Route::controller(KabController::class)->group(function () {
+
+    Route::get('/kabupaten', 'index');
+    Route::post('/kabupaten', 'store');
+    Route::get('/kabupaten/{id}', 'show');
+    Route::put('/kabupaten/{id}', 'update');
+    Route::delete('/kabupaten/{id}', 'destroy');
+
+});
+
+// kecamatan
+Route::controller(KecController::class)->group(function () {
+
+    Route::get('/kecamatan', 'index');
+    Route::post('/kecamatan', 'store');
+    Route::get('/kecamatan/{id}', 'show');
+    Route::put('/kecamatan/{id}', 'update');
+    Route::delete('/kecamatan/{id}', 'destroy');
+
+});
+
+// desa
+Route::controller(DesaController::class)->group(function () {
+
+    Route::get('/desa', 'index');
+    Route::post('/desa', 'store');
+    Route::get('/desa/{id}', 'show');
+    Route::put('/desa/{id}', 'update');
+    Route::delete('/desa/{id}', 'destroy');
+
+});
+
+// kode pos
+Route::controller(KodePosController::class)->group(function () {
+
+    Route::get('/kode-pos', 'index');
+    Route::post('/kode-pos', 'store');
+    Route::get('/kode-pos/{id}', 'show');
+    Route::put('/kode-pos/{id}', 'update');
+    Route::delete('/kode-pos/{id}', 'destroy');
+
+});
+
+// pengiriman
+Route::controller(PengirimanController::class)->group(function () {
+
+    Route::get('/pengiriman', 'index');
+    Route::post('/pengiriman', 'store');
+    Route::get('/pengiriman/{id}', 'show');
+    Route::put('/pengiriman/{id}', 'update');
+    Route::delete('/pengiriman/{id}', 'destroy');
+
+});
 
 

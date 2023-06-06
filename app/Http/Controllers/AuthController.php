@@ -45,7 +45,8 @@ class AuthController extends Controller
                     'token' => $token,
                     'exp' => $expiration_time,
                 ],
-            ]);
+            ], 200);
+            
 
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
